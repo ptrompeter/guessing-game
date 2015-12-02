@@ -107,9 +107,7 @@ function answers() {
 
 //function calls
 qNumber();
-console.log("numOfQs = " + numOfQs);
 qArrayMaker();
-console.log("qNumArray = " + qNumArray);
 gameFunc(qNumArray);
 answers();
 
