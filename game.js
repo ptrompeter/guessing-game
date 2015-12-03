@@ -14,9 +14,9 @@ var checkNum;
 //declaring functions
 
 function qNumber(){
-  numOfQs = parseInt(prompt("How many questions do you want? Choose a number less than or equal to 5."));
-  if (!(numOfQs > 0 && numOfQs <= 5)){
-    alert("Please select an interger greater than 0 and less than 6.");
+  numOfQs = parseInt(prompt("How many questions do you want? Choose a number less than or equal to 7."));
+  if (!(numOfQs > 0 && numOfQs <= 7)){
+    alert("Please select an interger greater than 0 and less than 8.");
     qNumber();
   } 
 }
@@ -45,8 +45,12 @@ function gameFunc(array) {
       jobFunc();
     } else if (array[i] === 4){
       ageFunc();
-    } else {
+    } else if (array[i] === 5){
       petFunc();
+    } else if (array[i] === 6){
+      guessFunc();
+    } else {
+      citiesFunc();
     }
   }
 }
@@ -94,7 +98,45 @@ function petFunc() {
   if (pet.toLowerCase() === 'claw'){
     counter++;
   } else {
-    wrongAnswer.push(" my first pet wasn't named " + pet + ".");
+    wrongAnswer.push(" My first pet wasn't named " + pet + ".");
+  }
+}
+
+function guessFunc(){
+  var correctAnswer = Math.ceil(Math.random() * 100);
+  console.log(correctAnswer);
+  var guess = null;
+  while (parseInt(guess) !== correctAnswer){
+    if (guess === null){
+      guess = prompt("I'm thinking of a number between 1 and 100. What is it? (type q to quit)");
+    } else if (guess === 'q' || guess === 'Q' || guess === 'quit' || guess === 'Quit') {
+        alert("Fine.  You don't want to play. Moving on.");
+        wrongAnswer.push(" You couldn't guess my number.");
+        break;
+    }else if (isNaN(parseInt(guess))) {
+      guess = prompt("You're not even trying.  Guess a number or type q to quit.");
+    } else if (parseInt(guess) < correctAnswer){
+      guess = prompt("Your guess was too low.  Try again!");
+    } else if (parseInt(guess) > correctAnswer){
+      guess = prompt("Your guess was too high.  Try again!");
+    } else {
+      alert("Bingo! " + correctAnswer + "was my number! Good job!");
+      counter++;
+    }
+  }
+}
+function citiesFunc(){
+  var cities = ["seattle", "chicago", "berkeley"];
+  var guess = prompt("Name a city I've lived in").toLowerCase();
+  var checkGuess;
+  for (i=0; i < cities.length ; i++)
+    if (guess === cities[i]){
+      checkGuess = true;
+    }
+  if (checkGuess) {
+    counter++;
+  } else {
+    wrongAnswer.push(" I've never lived in" + guess + ".");
   }
 }
 function answers() {
@@ -105,10 +147,13 @@ function answers() {
   }
 }
 
+
 //function calls
 qNumber();
 qArrayMaker();
 gameFunc(qNumArray);
+guessFunc();
+citiesFunc();
 answers();
 
 
