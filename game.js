@@ -152,8 +152,6 @@ function answers() {
 qNumber();
 qArrayMaker();
 gameFunc(qNumArray);
-guessFunc();
-citiesFunc();
 answers();
 
 
