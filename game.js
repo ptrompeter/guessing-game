@@ -29,7 +29,7 @@ function repeatChecker(){
 }
 function qArrayMaker() {
   while (qNumArray.length < numOfQs){
-    checkNum = Math.ceil(Math.random() * 5);
+    checkNum = Math.ceil(Math.random() * 7);
       if(!repeatChecker()){
         qNumArray.push(checkNum);
       }
@@ -104,7 +104,6 @@ function petFunc() {
 
 function guessFunc(){
   var correctAnswer = Math.ceil(Math.random() * 100);
-  console.log(correctAnswer);
   var guess = null;
   while (parseInt(guess) !== correctAnswer){
     if (guess === null){
