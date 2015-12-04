@@ -121,18 +121,31 @@ function easyQFunc(num){
 //   }
 // }
 function ageFunc(){
+  var liEl  = document.createElement("li");
+
   age = prompt("How old am I? (As of December 2015.)");
   if (age === "quit" || age === "Quit" || age === "q" || age === "Q") {
-      alert("You suck at writing numbers.");
+      alert("Quitter. Also, WRONG.");
+      var quit = true;
   } else if (!parseInt(age)){
-      age = prompt("Please enter an interger value for my age, or type 'quit'.");
-      ageFunc();
-  } else if (parseInt(age) === 37){
+      age = prompt("Please enter an interger value for my age.");  
+  } 
+  if (parseInt(age) === 37  ){
       counter++;
       console.log(counter);
+      aBox.textContent = "You got it right!";
+      aBox.className = "right";
   } else {
       wrongAnswer.push(" I'm not " + age + " years old.");
+    aBox.textContent = "WRONG";
+    aBox.className = "wrong";
   }
+  liEl.innerHTML = "How old am I? (as of December, 2015)<br> Your Answer: " + age + ".";
+  qList.appendChild(liEl);
+
+}
+function ageQtracker(){
+
 }
 // function petFunc() {
 //   pet = prompt("What was the name of my first pet?");
@@ -168,6 +181,9 @@ function guessFunc(){
   counter++;
   console.log(counter);
   }
+  var liEl  = document.createElement("li");
+  liEl.innerHTML = "I'm thinking of a number between 1 and 100.  <br> My number: " + correctAnswer + "<br>Your Answer: " + guess + ".";
+  qList.appendChild(liEl);
 }
 // function citiesFunc(){
 //   var cities = ["seattle", "chicago", "berkeley"];
