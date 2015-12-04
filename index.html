@@ -3,16 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>A guessing game about me.</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <div id="messageBox"> </div>
+    <div id="questionBox">Questions:
+      <ol id="questionList"></ol>
+    </div>
+    <div id="imputBox"></div>
+    <div id="answerBox"></div>
 
     <h1> Hi! Here's my day 1 homework. </h1> 
-    <h4> In this game, the user first receives an alert, then receives three prompts with questions.  Upon answering each, the value is saved to one of three variables: name, tv, or job.</h4> 
-    <h4> An if statement then runs for each question: if the (case insensitive) imput matches the correct answer (patrick, supernatural, or (lawyer or attorney), respectively), a counter is increased by one.  If an answer is missed, a hard-coded string about the error is pushed to the wrongAnswer array.  Finally, an alert is generated that either displays that the user correctly answered all three questions, or alternatively tells the user how many he or she got right (using the value of counter) and displays a joined version of the array.</h4> 
+    <h4> In this game, the user is prompted how many questions he or she wants to answer.  The game then generates an array of randomized numbers equal to the number of questions the user selected (avoiding duplicates).  The numbers in the array are associated with functions, which are then called.  The questions are printed to the dom (added as list elements), as are the user's responses.  A right or wrong display is also written to the page, and rewritten each time the user answers a new question. Finally, a summary is displayed as an alert when the user finishes the game.
+    </h4>
 
-    <p> The whole business about the array is a little unnecessary (heck, I could have just saved and added to an error string each time), but I like arrays and this gave me an opportunity to learn something about how to fiddle with their display.  I never figured out how to put line breaks into the array, but I did learn how to get rid of the commas after each entry using the .join() method.</p>
-
-    <p> Addendum: I have now updated the game - it has five questions and the user can select the number of questions for the game.  That number of questions is then randomly selected from the pre-generated questions and asked in prompts.  </p>
 
     
     <script src="game.js"></script>
